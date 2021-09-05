@@ -9,7 +9,7 @@
 APIが使えます。
 
 ```
-https://nsk-1010.github.com/5000choyen/api.html?top=上部文字列&bottom=下部文字列&correctjp=yesまたはno
+https://nsk-1010.github.io/5000choyen/api.html?top=上部文字列&bottom=下部文字列&correctjp=yesまたはno
 ```
 
 |name|value|description|
