@@ -1,7 +1,7 @@
 {
   "name": "5000choyen",
   "version": "1.0.0",
-  "description": "5000兆円風の文字を描画するWebツールです．",
+  "description": "5000兆円風の文字を描画するWebツールです。怪しい日本語も使えます。",
   "main": "index.js",
   "directories": {
     "doc": "docs"
@@ -11,14 +11,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yurafuca/5000choyen.git"
+    "url": "git+https://github.com/NSK-1010/5000choyen.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "MIT",
   "bugs": {
-    "url": "https://github.com/yurafuca/5000choyen/issues"
+    "url": "https://github.com/NSK-1010/5000choyen/issues"
   },
-  "homepage": "https://github.com/yurafuca/5000choyen#readme",
+  "homepage": "https://github.com/NSK-1010/5000choyen#readme",
   "dependencies": {
     "eslint": "^4.2.0"
   }

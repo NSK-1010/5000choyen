@@ -18,17 +18,24 @@ window.onload = function() {
     drawer = new Drawer(canvas);
     drawer.lang = "ja";
 
-    var fontA = new FontFaceObserver('notobk');
-    var fontB = new FontFaceObserver('notoserifbk');
+    var fontA = new FontFaceObserver('Noto Sans JP');
+    var fontB = new FontFaceObserver('Noto Serif JP');
+    var fontC = new FontFaceObserver('Noto Sans SC');
+    var fontD = new FontFaceObserver('Noto Serif SC');
 
-    Promise.all([fontA.load(), fontB.load()]).then(function () {
+    Promise.all([fontA.load(), fontB.load(), fontC.load(), fontD.load()]).then(function () {
         const ctx = drawer.ctx;
 
         drawer.bottomText.onLoadImg(() => {
             drawer.useTransparent = params.color == 'true';
             drawer.bottomText.useImg = params.order == 'true';
-            drawer.topText.value = decodeURI(params.top);
-            drawer.bottomText.value = decodeURI(params.bottom);
+            if (decodeURI(params.correctjp) == "yes") {
+                drawer.topText.value = cjpgen(decodeURI(params.top));
+                drawer.bottomText.value = cjpgen(decodeURI(params.bottom));
+            } else {
+                drawer.topText.value = decodeURI(params.top);
+                drawer.bottomText.value = decodeURI(params.bottom);
+            }
             drawer.bottomText.x = Number(params.bx);
 
             drawer.refresh();

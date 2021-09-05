@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <script src="src/cjp.js"></script>
+    </head>
+    <body>
+        <script>
+            function countbytes(str) {
+                str = str.replace(/[｡-ﾟ]/g, 'A');
+                var hex = '';
+                for (var i = 0; i < str.length; i++) {
+                    hex += (('0000' + str.charCodeAt(i).toString(16)).slice(-4)).replace(/^00/, '');   // <- ここ修正
+                }
+                return hex.length/2;
+            }
+
+            const queries = window.location.href.split('?')[1];
+            const params = {};
+            queries.split('&').forEach(function (query) {
+                const name = query.split('=')[0];
+                const data = query.split('=')[1];
+                params[name] = data;
+            });
+            
+            if (params.bx) {
+                var bx = decodeURI(params.bx);
+            } else {
+                var bx = "250";
+            }
+
+            if (decodeURI(params.correctjp) == "yes") {
+                var cjptop = cjpgen(decodeURI(params.top));
+                var cjpbot = cjpgen(decodeURI(params.bottom)).replaceAll("！", "!");
+            } else {
+                var cjptop = decodeURI(params.top);
+                var cjpbot = decodeURI(params.bottom).replaceAll("！", "!");
+            }
+
+            var widthkun = countbytes(cjptop) + countbytes(cjpbot) + 2;
+            var widthchan = widthkun * 50;
+            var topwidkun = countbytes(cjptop) + 1;
+            var topwid = topwidkun * 50;
+            var botwidkun = countbytes(cjpbot) + 1;
+            var botwid = botwidkun * 50;
+
+            if (Number(bx) >= topwid){
+                var width = botwid + Number(bx) + 50;
+            } else if (botwid + Number(bx) >= topwid) {
+                var width = botwid + Number(bx) + 50;
+            } else {
+                var width = topwid + 50;
+            }
+
+            if (params.alpha) {
+                var alpha = decodeURI(params.alpha);
+            } else {
+                var alpha = "true";
+            }
+
+            if (params.hoshii) {
+                var hoshii = decodeURI(params.hoshii);
+            } else {
+                var hoshii = "false";
+            }
+
+            var url =
+                "./result.html?top=" + decodeURI(params.top) +
+                "&bottom=" + decodeURI(params.bottom).replaceAll("！", "!") +
+                "&bx=" + bx +
+                "&order=" + hoshii +
+                "&color=" + alpha +
+                "&width=" + width +
+                "&height=290" +
+                "&correctjp=" + decodeURI(params.correctjp);
+            window.location = url;
+        </script>
+    </body>
+</html>

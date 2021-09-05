@@ -3,19 +3,10 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fontfaceobserver/2.0.13/fontfaceobserver.js"></script>
-    <link href="res/notobk-subset.otf" rel="preload" as="font" type="font/ot" />
-    <link href="res/notoserifbk-subset.otf" rel="preload" as="font" type="font/otf" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@900&family=Noto+Sans+SC:wght@900&family=Noto+Serif+JP:wght@900&family=Noto+Serif+SC:wght@900&display=swap" rel="stylesheet">
     <style type="text/css">
-        @font-face {
-            font-family: "notobk";
-            src: url("res/notobk-subset.otf") format("opentype");
-        }
-
-        @font-face {
-            font-family: "notoserifbk";
-            src: url("res/notoserifbk-subset.otf") format("opentype");
-        }
-
         html {
             height: 100%;
             width: 100%;
@@ -34,10 +25,6 @@
     <meta name="author" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="" />
-    <!--[if lt IE 9]>
-    <script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
     <link rel="shortcut icon" href="" />
 </head>
 <body>
@@ -46,6 +33,7 @@
 </div>
 <img style="border: 0; position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0; width: 100%; height: 100%;" id="result2" />
 
+<script src="src/cjp.js"></script>
 <script src="src/top_text.js"></script>
 <script src="src/bottom_text.js"></script>
 <script src="src/drawer.js"></script>

@@ -1,7 +1,7 @@
 function TopText(ctx) {
 
     this.value = "";
-    this.font = "";
+    this.font = "notobk, notobksc";
     this.x = 70.0;
     this.y = 100.0;
     this.w = 0.0;

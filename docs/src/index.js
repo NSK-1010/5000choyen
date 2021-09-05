@@ -14,15 +14,24 @@ window.onload = function() {
 };
 
 function onChangeState() {
-    const textboxTop = document.getElementById("textboxTop");
-    const textboxBottom = document.getElementById('textboxBottom');
+    if (document.getElementById("correctjp").checked) {
+        var textboxTop = document.getElementById("textboxTop");
+        var textboxBottom = document.getElementById('textboxBottom');
+        var textboxTopvalue = cjpgen(document.getElementById("textboxTop").value);
+        var textboxBottomvalue = cjpgen(document.getElementById('textboxBottom').value);
+    } else {
+        var textboxTop = document.getElementById("textboxTop");
+        var textboxBottom = document.getElementById('textboxBottom');
+        var textboxTopvalue = document.getElementById("textboxTop").value;
+        var textboxBottomvalue = document.getElementById('textboxBottom').value;
+    }
     const backgroundOrder = document.querySelector('input[name="background-color"]:checked');
     const textOrder = document.querySelector('input[name="text-type"]:checked');
 
     drawer.useTransparent = backgroundOrder.value === `transparent`;
     drawer.bottomText.useImg = textOrder.value === `image`;
-    drawer.topText.value = textboxTop.value;
-    drawer.bottomText.value = textboxBottom.value.replaceAll("！", "!");
+    drawer.topText.value = textboxTopvalue;
+    drawer.bottomText.value = textboxBottomvalue.replaceAll("！", "!");
     drawer.useTransparent = document.querySelector('input[name="background-color"]:checked').value === `transparent`;
 
     drawer.refresh();

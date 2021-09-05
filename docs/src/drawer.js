@@ -30,13 +30,8 @@ function Drawer(canvas) {
 Drawer.prototype.refresh = function() {
     this.clear();
 
-    if (this.lang == "ja") {
-        this.topText.font = "100px notobk";
-        this.bottomText.font = "100px notoserifbk";
-    } else {
-        this.topText.font = "100px 'Noto Sans SC'";
-        this.bottomText.font = "100px 'Noto Serif SC'";
-    }
+    this.topText.font = "900 100px 'Noto Sans JP', 'Noto Sans SC', sans-serif";
+    this.bottomText.font = "900 100px 'Noto Serif JP', 'Noto Serif SC', serif";
 
     this.topText.draw();
     this.bottomText.draw();
@@ -154,10 +149,7 @@ Drawer.prototype.openImage = function() {
         '&order=' + this.bottomText.useImg +
         '&color=' + this.useTransparent +
         '&width=' + Math.max(this.topText.x + this.topText.w, this.bottomText.x + this.bottomText.w) +
-        '&height=' + this.ctx.canvas.height;
-    if (this.lang === "ja") {
+        '&height=' + this.ctx.canvas.height +
+        '&correctjp=no';
         window.open('result.html?' + q);
-    } else {
-        window.open('result_cn.html?' + q);
-    }
 }
