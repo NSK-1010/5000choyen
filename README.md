@@ -3,7 +3,7 @@
 
 [ここ!](https://nsk-1010.github.io/5000choyen)
 
-![スクショ](./docs/res/screenshot.png)
+![スクショ](./res/screenshot.png)
 
 # APIの使い方
 APIが使えます。
